@@ -104,9 +104,9 @@ puts "\n***********************************\nhashes"
 xs = {}
 puts xs.class
 
-xs = {'Name' => 'Ruby', 'Type' => 'Programming Language'}
-puts xs, xs['Name']
-puts xs.index('Ruby')
+xs = {'Name' => 'Ruby', :Type => 'Programming Language'}
+puts xs, xs['Name'], xs[:Type]
+puts xs.key('Ruby')
 
 xs['Version'] = '2.1.5'
 puts xs, xs.keys.to_s, xs.values.to_s, xs.length
@@ -116,6 +116,39 @@ puts xs.clear
 
 # symbols
 puts "\n***********************************\nsymbols"
+a = :abc
+b = "abc"
+puts [a.object_id, b.object_id].join(", ")
+x = :abc
+y = "abc"
+puts [x.object_id, y.object_id].join(", ")
+
+# use symbols as keys in hashes
+hash = {:Name => 'Ruby', :Version => '2.1.5'}
+puts hash, hash[:Name], hash['Name'.to_sym]
+
+
+# bools
+puts "\n***********************************\nbools"
+x = 123
+puts x == 321, x != 123, x <= 100, x >= 100, !x
+puts true.class, false.class
+puts 1 < 2 && 2 > 1, 1 > 2 || 2 > 1
+puts 2.between?(1,3)
+
+puts x.nil?
+x = nil
+puts x.nil?
+
+puts [1,2,3].empty?, [].empty?, [1,2,3].include?(4)
+puts ({:one => 1, :two => 2}).has_key?(:one)
+
+
+
+
+
+
+
 
 
 
