@@ -57,10 +57,10 @@ puts hello_world.length
 
 # arrays
 puts "\n***********************************\narrays"
-array_one   = Array.new
-array_two   = []
+array_one = Array.new
+array_two = []
 array_three = ["a", "b", 'c']
-array_four  = %w[a b c]
+array_four = %w[a b c]
 puts array_one, array_two.class, array_three.join, array_four.join(';')
 puts [array_three[2], array_four[1], array_three.first].join(';')
 
@@ -128,28 +128,41 @@ hash = {:Name => 'Ruby', :Version => '2.1.5'}
 puts hash, hash[:Name], hash['Name'.to_sym]
 
 
-# bools
-puts "\n***********************************\nbools"
+# booleans
+puts "\n***********************************\nbooleans"
 x = 123
 puts x == 321, x != 123, x <= 100, x >= 100, !x
 puts true.class, false.class
 puts 1 < 2 && 2 > 1, 1 > 2 || 2 > 1
-puts 2.between?(1,3)
+puts 2.between?(1, 3)
 
 puts x.nil?
 x = nil
 puts x.nil?
 
-puts [1,2,3].empty?, [].empty?, [1,2,3].include?(4)
+puts [1, 2, 3].empty?, [].empty?, [1, 2, 3].include?(4)
 puts ({:one => 1, :two => 2}).has_key?(:one)
 
 
+# ranges
+puts "\n***********************************\nranges"
+puts (1..10).class
+a = 1..10 # inclusive (1 to 10)
+b = 1...10 # exclusive (1 to 9)
+puts a.begin, a.end, a.first, a.last
+puts b.begin, b.end, b.first, b.last
+puts a.include?(10), b.include?(10)
+puts a, b
+puts [*a].join(","), [*b].join(",") # expand/splat
+
+x = 'a'..'i'
+puts x.include?('g'), [*x].to_s
 
 
-
-
-
-
-
-
+# constants
+puts "\n***********************************\nconstants"
+ALPHA = 1
+Beta = 2
+ALPHA = 3 # gives warning, but still works
+puts ALPHA, Beta
 
