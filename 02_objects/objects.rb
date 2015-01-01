@@ -11,6 +11,7 @@ $i_am_global = 1
 i_am_local = 4
 puts $i_am_global + @@i_am_class + @i_am_instance + i_am_local
 
+
 # ints
 puts "\n***********************************\nints"
 x = 1
@@ -23,6 +24,7 @@ puts 1234.class, 12345678901234567890.class
 puts -123, -123.abs, -123.next
 puts 1_2_3_4, 123_4.div(2)
 
+
 # floats
 puts "\n***********************************\nfloats"
 puts 123.456, 123.456.class
@@ -33,6 +35,7 @@ puts a.class
 puts 10 / 3
 puts 10.0 / 3
 puts 12345.67890.round, 12345.67890.to_i, 12345.67890.floor, 12345.67890.ceil
+
 
 # strings
 puts "\n***********************************\nstrings"
@@ -50,6 +53,7 @@ puts "1 + 2 = #{1 + 2}"
 
 puts hello_world.reverse.upcase, hello_world.capitalize, hello_world.downcase
 puts hello_world.length
+
 
 # arrays
 puts "\n***********************************\narrays"
@@ -91,20 +95,27 @@ puts array_six.inspect
 array_six.uniq!
 puts array_six.inspect
 
-puts (array_five + array_six).inspect
-puts (array_five - array_six).inspect
+puts (array_five + array_six).to_s
+puts (array_five - array_six).to_s
+
 
 # hashes
 puts "\n***********************************\nhashes"
+xs = {}
+puts xs.class
+
+xs = {'Name' => 'Ruby', 'Type' => 'Programming Language'}
+puts xs, xs['Name']
+puts xs.index('Ruby')
+
+xs['Version'] = '2.1.5'
+puts xs, xs.keys.to_s, xs.values.to_s, xs.length
+puts xs.to_a.to_s
+puts xs.clear
 
 
-
-
-
-
-
-
-
+# symbols
+puts "\n***********************************\nsymbols"
 
 
 
