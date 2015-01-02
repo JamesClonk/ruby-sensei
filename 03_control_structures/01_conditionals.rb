@@ -30,7 +30,7 @@ end
 
 # case (switch)
 puts "\n***********************************\ncase"
-xs = [1,2,3,4,5]
+xs = [1, 2, 3, 4, 5]
 case xs.include?(1)
   when true
     puts 'yup!'

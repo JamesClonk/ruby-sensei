@@ -17,3 +17,4 @@ y = 2
   puts x ** y
 end
 puts x
+
