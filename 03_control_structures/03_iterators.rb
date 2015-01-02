@@ -32,7 +32,7 @@ xs.each do |y| puts y end
 (1..10).each {|x| puts x unless x % 2 == 0}
 
 
-# for (syntactic sugar for "each")
+# for
 puts "\n***********************************\nfor"
 for num in xs
   break unless num < 4
