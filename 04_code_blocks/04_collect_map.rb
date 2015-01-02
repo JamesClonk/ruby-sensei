@@ -19,3 +19,4 @@ puts rs.to_s
 hs = {:name => 'Ruby', :version => '2.1.5'}
 puts hs.map { |k, _| k }
 puts (hs.map { |k, v| [k, v] }).to_h
+
