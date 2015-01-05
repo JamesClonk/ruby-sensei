@@ -1,18 +1,18 @@
-# class attributes
-puts "\n***********************************\nclass attributes"
+# attributes
+puts "\n***********************************\nattributes"
 
 # getter/setter's are called reader/writer in ruby
 
 class Animal
   # def set_noise(noise)
-  # 	@noise = noise
+  #   @noise = noise
   # end
   def noise=(noise)
     @noise = noise
   end
 
   # def get_noise
-  # 	@noise
+  #   @noise
   # end
   def noise
     @noise
