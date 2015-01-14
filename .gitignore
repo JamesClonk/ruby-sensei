@@ -40,4 +40,7 @@ build/
 .vendor
 .bundle
 
+# sample files
+test.txt
+
 
