@@ -1,0 +1,2 @@
+# directories
+puts "\n***********************************\ndirectories"
