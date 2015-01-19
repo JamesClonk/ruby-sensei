@@ -17,7 +17,31 @@ class Guide
 
   def launch!
     introduction
+
+    result = nil
+    until result == :quit
+      print "> "
+      response = gets.chomp
+
+      result = do_action(response)
+    end
+
     conclusion
+  end
+
+  def do_action(action)
+    case action
+    when 'list'
+      puts "Listing.."
+    when 'find'
+      puts "Finding.."
+    when 'add'
+      puts "Adding.."
+    when 'quit'
+      return :quit
+    else
+      puts "\nHuh?\n"
+    end
   end
 
   def introduction
