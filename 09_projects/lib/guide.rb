@@ -2,6 +2,11 @@ require 'restaurant'
 
 class Guide
 
+  class Config
+    @@actions = ['list','find','add','quit']
+    def self.actions; @@actions; end
+  end
+
   def initialize(path=nil)
     Restaurant.filepath = path
 
@@ -20,13 +25,22 @@ class Guide
 
     result = nil
     until result == :quit
-      print "> "
-      response = gets.chomp
-
-      result = do_action(response)
+      action = get_action
+      result = do_action(action)
     end
 
     conclusion
+  end
+
+  def get_action
+    action = nil
+    until Guide::Config.actions.include?(action)
+      puts "Actions: #{Guide::Config.actions.join(', ')}" if action
+      print "> "
+      response = gets.chomp
+      action = response.downcase.strip
+    end
+    return action
   end
 
   def do_action(action)
