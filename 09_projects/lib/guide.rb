@@ -47,7 +47,7 @@ class Guide
   def do_action(action, args=[])
     case action
     when 'list'
-      list
+      list(args)
     when 'find'
       keyword = args.shift
       find(keyword)
@@ -71,10 +71,26 @@ class Guide
     end
   end
 
-  def list
+  def list(args=[])
     puts "\nList all restaurants\n\n"
 
-    list_restaurants(Restaurant.saved_restaurants)
+    sort_order = args.shift
+    sort_order = args.shift if sort_order == 'by'
+    sort_order = "name" unless ['name','cuisine','price'].include?(sort_order)
+
+    restaurants = Restaurant.saved_restaurants
+    restaurants.sort! do |r1,r2|
+      case sort_order
+      when 'name'
+        r1.name.downcase <=> r2.name.downcase
+      when 'cuisine'
+        r1.cuisine.downcase <=> r2.cuisine.downcase
+      when 'price'
+        r1.price.to_i <=> r2.price.to_i
+      end
+    end
+
+    list_restaurants(restaurants)
   end
 
   def find(keyword="")
