@@ -29,6 +29,15 @@ class Restaurant
   end
 
   def self.saved_restaurants
+    restaurants = []
+    if file_usable?
+      file = File.new(@@filepath, 'r')
+      file.each_line do |line|
+        restaurants << Restaurant.build_from_line(line.chomp)
+      end
+      file.close
+    end
+    return restaurants
   end
 
   def initialize(args={})
@@ -37,7 +46,7 @@ class Restaurant
     @price = args[:price] || ""
   end
 
-  def self.build_using_questions
+  def self.build_from_questions
     values = {}
 
     print "Restaurant name: "
@@ -52,10 +61,15 @@ class Restaurant
     return self.new(values)
   end
 
+  def self.build_from_line(line)
+    @name, @cuisine, @price = line.split(";")
+    return Restaurant.new({name: @name, cuisine: @cuisine, price: @price})
+  end
+
   def save
     return false unless Restaurant.file_usable?
     File.open(@@filepath, 'a') do |file|
-      file.puts "#{[@name, @cuisine, @price].join("\t")}\n"
+      file.puts "#{[@name, @cuisine, @price].join(";")}\n"
     end
     return true
   end

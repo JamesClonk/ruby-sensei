@@ -1,2 +1,2 @@
-Hot Tamale	Mexican	22
-Cafe Masala	Indian	28
+Hot Tamale;Mexican;22
+Cafe Masala;Indian;28
