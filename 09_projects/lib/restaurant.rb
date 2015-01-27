@@ -31,6 +31,27 @@ class Restaurant
   def self.saved_restaurants
   end
 
+  def initialize(args={})
+    @name = args[:name] || ""
+    @cuisine = args[:cuisine] || ""
+    @price = args[:price] || ""
+  end
+
+  def self.build_using_questions
+    values = {}
+
+    print "Restaurant name: "
+    values[:name] = gets.chomp.strip
+
+    print "Cuisine type: "
+    values[:cuisine] = gets.chomp.strip
+
+    print "Average price: "
+    values[:price] = gets.chomp.strip
+
+    return self.new(values)
+  end
+
   def save
     return false unless Restaurant.file_usable?
     File.open(@@filepath, 'a') do |file|
